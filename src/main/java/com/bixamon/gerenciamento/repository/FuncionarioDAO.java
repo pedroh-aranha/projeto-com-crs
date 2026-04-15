@@ -20,7 +20,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public class FuncionarioDAO {
-    public List<FuncionarioBean> lertodos(){
+    public List<FuncionarioBean> lerTodos(){
         List<FuncionarioBean> dados = new ArrayList();
             try{
                 Connection conn = Conexao.conectar();
@@ -37,7 +37,7 @@ public class FuncionarioDAO {
                     funcionario.setCargo(rs.getString("cargo"));
                     funcionario.setDepartamento(rs.getString("departamento"));
                     funcionario.setEmail(rs.getString("email"));
-                    funcionario.setData_contratacao(rs.getDate("data_contratacao"));
+                    funcionario.setDataContratacao(rs.getDate("data_contratacao"));
                     
                     dados.add(funcionario);
                 }
@@ -45,5 +45,28 @@ public class FuncionarioDAO {
                 e.printStackTrace();
             }
         return dados;
+    }
+    public FuncionarioBean buscaPorId(int id){
+        FuncionarioBean funcionario = new FuncionarioBean();
+       try {
+            Connection conn = Conexao.conectar();
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+            stmt = conn.prepareStatement( "select funcionario SET nome = ?, cargo = ?, departamento = ?, email = ?, data_contratacao = ? WHERE id = ?");
+            stmt.setInt(1, id);
+            
+            if(rs.next()){
+                funcionario.setId(rs.getInt("id"));
+                funcionario.setNome(rs.getString("nome"));
+                funcionario.setCargo(rs.getString("cargo"));
+                funcionario.setDepartamento(rs.getString("departamento"));
+                funcionario.setEmail(rs.getString("email"));
+                funcionario.setDataContratacao(rs.getDate("data_contratacao"));
+            }
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+       return funcionario;
     }
 }
