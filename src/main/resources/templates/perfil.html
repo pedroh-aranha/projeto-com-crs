@@ -18,21 +18,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <main>
             <h2>Editar Dados</h2>
             <form th:action="@{/salvar}" th:object="${funcionario}" method="post">
-                <input type="hidden" th:field="*{id}"/>
+                <input type="hidden" th:field="*{id}">
                 <label>Nome: </label>
-                <input type="text" th:field="*{nome}"/> <br> <br>
+                <input type="text" th:field="*{nome}"> <br> <br>
                 
                 <label>Cargo: </label>
-                <input type="text" th:field="*{cargo}"/> <br> <br>
+                <input type="text" th:field="*{cargo}"> <br> <br>
                 
                 <label>Departamento: </label>
-                <input type="text" th:field="*{departamento}"/> <br> <br>
+                <input type="text" th:field="*{departamento}"> <br> <br>
                 
                 <label>E-mail: </label>
-                <input type="email" th:field="*{email}"/> <br> <br>
+                <input type="email" th:field="*{email}"> <br> <br>
                 
                 <label>Data de contratação: </label>
-                <input type="date" th:field="*{dataContratacao}"/> <br> <br>
+                <input type="date" th:field="*{dataContratacao}"> <br> <br>
                 
                 <button type="submit">Salvar</button>
             </form>

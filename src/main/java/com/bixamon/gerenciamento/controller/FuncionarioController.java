@@ -44,4 +44,10 @@ public class FuncionarioController {
     return "redirect:/funcionarios";
     }
     
+    @PostMapping("/adicionar")
+    public String Adiconar(@ModelAttribute FuncionarioBean funcionario){
+    service.addFuncionario(funcionario);
+    return "redirect:/funcionarios";
+    }
+    
 }

@@ -38,6 +38,31 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                         <a th:href="@{/perfil(id=${f.id})}">Editar</a>
                     </td>
                 </tr>
+                
+                <h2>Inserir Novo Cadastro</h2>
+                
+                
+                <a th:href="@{/perfil(id=${f.id})}">adicionar</a>
+                
+                <form action="cadastrar Funcionario" method="POST">
+                <label>Nome:</label><br>
+                <input type="text" name="nome" required><br><br>
+
+                <label>Cargo: </label>
+                <input type="text" th:field="cargo" required> <br> <br>
+                
+                <label>Departamento: </label>
+                <input type="text" th:field="departamento" required> <br> <br>
+                
+                <label>Email:</label><br>
+                <input type="email" name="email" required><br><br>
+                
+                <label>Data de contratação: </label>
+                <input type="date" th:field="dataContratacao" required> <br> <br>
+
+                <input type="submit" value="Enviar">
+            </form>
+                
         </main>
     </body>
 </html>
