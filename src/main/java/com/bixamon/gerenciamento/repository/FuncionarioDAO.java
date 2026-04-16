@@ -46,16 +46,18 @@ public class FuncionarioDAO {
             }
         return dados;
     }
-    public FuncionarioBean buscaPorId(int id){
+    public FuncionarioBean buscaPorId(int id) {
         FuncionarioBean funcionario = new FuncionarioBean();
-       try {
+        try {
             Connection conn = Conexao.conectar();
             PreparedStatement stmt = null;
             ResultSet rs = null;
-            stmt = conn.prepareStatement( "select funcionario SET nome = ?, cargo = ?, departamento = ?, email = ?, data_contratacao = ? WHERE id = ?");
+
+            stmt = conn.prepareStatement("select * from funcionario where id = ?");
             stmt.setInt(1, id);
-            
-            if(rs.next()){
+            rs = stmt.executeQuery();
+
+            if (rs.next()) {
                 funcionario.setId(rs.getInt("id"));
                 funcionario.setNome(rs.getString("nome"));
                 funcionario.setCargo(rs.getString("cargo"));
@@ -63,10 +65,29 @@ public class FuncionarioDAO {
                 funcionario.setEmail(rs.getString("email"));
                 funcionario.setDataContratacao(rs.getDate("data_contratacao"));
             }
-            
         } catch (SQLException e) {
             e.printStackTrace();
         }
-       return funcionario;
+        return funcionario;
+    }
+    public void editar(FuncionarioBean funcionario) {
+        try {
+            Connection conn = Conexao.conectar();
+            PreparedStatement stmt = null;
+
+            stmt = conn.prepareStatement("update funcionario set nome = ?, cargo = ?, departamento = ?, email = ?, data_contratacao = ? where id = ?");
+
+            stmt.setString(1, funcionario.getNome());
+            stmt.setString(2, funcionario.getCargo());
+            stmt.setString(3, funcionario.getDepartamento());
+            stmt.setString(4, funcionario.getEmail());
+            stmt.setDate(5, funcionario.getDataContratacao());
+            stmt.setInt(6, funcionario.getId());
+
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -27,4 +27,8 @@ public class FuncionarioService {
     public FuncionarioBean buscaPorId(int id) {
         return repository.buscaPorId(id);
     }
+    
+    public void editar(FuncionarioBean funcionario) {
+        repository.editar(funcionario);
+    }
 }
