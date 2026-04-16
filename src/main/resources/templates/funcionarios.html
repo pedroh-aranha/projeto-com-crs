@@ -12,7 +12,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     <body>
         <header>
             <nav>
-                <a href="/portal">Voltar para portal</a>
+                
             </nav>
             <h1>o mãe eu comi 4 e só 1 me comeu</h1>
         </header>
@@ -35,7 +35,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <td th:text="${f.email}"></td>
                     <td th:text="${f.dataContratacao}"></td>
                     <td>
-                        <a href="@{/perfil(id=${f.id})}">Editar</a>
+                        <a th:href="@{/perfil(id=${f.id})}">Editar</a>
                     </td>
                 </tr>
         </main>
