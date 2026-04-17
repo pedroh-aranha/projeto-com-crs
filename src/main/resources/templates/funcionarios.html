@@ -17,7 +17,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             <h1>o mãe eu comi 4 e só 1 me comeu</h1>
         </header>
         <main>
-             <table>
+            <table>
                 <tr>
                     <th>ID</th>
                     <th>Nome</th>
@@ -33,36 +33,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <td th:text="${f.cargo}"></td>
                     <td th:text="${f.departamento}"></td>
                     <td th:text="${f.email}"></td>
-                    <td th:text="${f.dataContratacao}"></td>
+                    <td th:text="${f.data_contratacao}"></td>
                     <td>
                         <a th:href="@{/perfil(id=${f.id})}">Editar</a>
                     </td>
                 </tr>
-                
+            </table>
+            
                 <h2>Inserir Novo Cadastro</h2>
                 
-                
-                <a th:href="@{/perfil(id=${f.id})}">adicionar</a>
-                
-                <form action="cadastrar Funcionario" method="POST">
-                <label>Nome:</label><br>
-                <input type="text" name="nome" required><br><br>
-
-                <label>Cargo: </label>
-                <input type="text" th:field="cargo" required> <br> <br>
-                
-                <label>Departamento: </label>
-                <input type="text" th:field="departamento" required> <br> <br>
-                
-                <label>Email:</label><br>
-                <input type="email" name="email" required><br><br>
-                
-                <label>Data de contratação: </label>
-                <input type="date" th:field="dataContratacao" required> <br> <br>
-
-                <input type="submit" value="Enviar">
-            </form>
-                
+                <a href="/adiconar-novo">adicionar</a>
+                  
         </main>
     </body>
 </html>
