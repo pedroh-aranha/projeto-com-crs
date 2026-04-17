@@ -37,7 +37,7 @@ public class FuncionarioDAO {
                     funcionario.setCargo(rs.getString("cargo"));
                     funcionario.setDepartamento(rs.getString("departamento"));
                     funcionario.setEmail(rs.getString("email"));
-                    funcionario.setDataContratacao(rs.getDate("data_contratacao"));
+                    funcionario.setData_contratacao(rs.getDate("data_contratacao"));
                     
                     dados.add(funcionario);
                 }
@@ -63,7 +63,7 @@ public class FuncionarioDAO {
                 funcionario.setCargo(rs.getString("cargo"));
                 funcionario.setDepartamento(rs.getString("departamento"));
                 funcionario.setEmail(rs.getString("email"));
-                funcionario.setDataContratacao(rs.getDate("data_contratacao"));
+                funcionario.setData_contratacao(rs.getDate("data_contratacao"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -81,7 +81,7 @@ public class FuncionarioDAO {
             stmt.setString(2, funcionario.getCargo());
             stmt.setString(3, funcionario.getDepartamento());
             stmt.setString(4, funcionario.getEmail());
-            stmt.setDate(5, funcionario.getDataContratacao());
+            stmt.setDate(5, funcionario.getData_contratacao());
             stmt.setInt(6, funcionario.getId());
 
             stmt.executeUpdate();
@@ -94,13 +94,13 @@ public class FuncionarioDAO {
         try {
             Connection conn = Conexao.conectar();
             PreparedStatement stmt = conn.prepareStatement(
-                "INSERT INTO funcionario (nome, cargo, departamento, email, dataContratacao) VALUES (?, ?, ?, ?, ?)"
+                "INSERT INTO funcionario (nome, cargo, departamento, email, data_contratacao) VALUES (?, ?, ?, ?, ?)"
             );
             stmt.setString(1, funcionario.getNome());
             stmt.setString(2, funcionario.getCargo());
             stmt.setString(3, funcionario.getDepartamento());
             stmt.setString(4, funcionario.getEmail());
-            stmt.setDate(5, funcionario.getDataContratacao());
+            stmt.setDate(5, funcionario.getData_contratacao());
             stmt.executeUpdate();
             
             

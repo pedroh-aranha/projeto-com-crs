@@ -16,18 +16,18 @@ public class FuncionarioBean {
     private String cargo;
     private String departamento;
     private String email;
-    private Date dataContratacao;
+    private Date data_contratacao;
 
     public FuncionarioBean() {
     }
 
-    public FuncionarioBean(int id, String nome, String cargo, String departamento, String email, Date dataContratacao) {
+    public FuncionarioBean(int id, String nome, String cargo, String departamento, String email, Date data_contratacao) {
         this.id = id;
         this.nome = nome;
         this.cargo = cargo;
         this.departamento = departamento;
         this.email = email;
-        this.dataContratacao = dataContratacao;
+        this.data_contratacao = data_contratacao;
     }
 
     public int getId() {
@@ -70,12 +70,12 @@ public class FuncionarioBean {
         this.email = email;
     }
 
-    public Date getDataContratacao() {
-        return dataContratacao;
+    public Date getData_contratacao() {
+        return data_contratacao;
     }
 
-    public void setDataContratacao(Date dataContratacao) {
-        this.dataContratacao = dataContratacao;
+    public void setData_contratacao(Date data_contratacao) {
+        this.data_contratacao = data_contratacao;
     }
 
    

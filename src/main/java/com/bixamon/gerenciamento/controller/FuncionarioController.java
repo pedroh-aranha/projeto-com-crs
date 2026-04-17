@@ -38,6 +38,13 @@ public class FuncionarioController {
         return "perfil";
     }
     
+    @GetMapping("/adiconar-novo")
+    public String adicionarnovo(Model model) {
+        FuncionarioBean funcionario = new FuncionarioBean();
+        model.addAttribute("funcionario", funcionario);
+        return "adicionar-novo";
+    }
+    
     @PostMapping("/salvar")
     public String salvarDados(@ModelAttribute FuncionarioBean funcionario) {
     service.editar(funcionario);
@@ -45,7 +52,7 @@ public class FuncionarioController {
     }
     
     @PostMapping("/adicionar")
-    public String Adiconar(@ModelAttribute FuncionarioBean funcionario){
+    public String adiconar(@ModelAttribute FuncionarioBean funcionario){
     service.addFuncionario(funcionario);
     return "redirect:/funcionarios";
     }
